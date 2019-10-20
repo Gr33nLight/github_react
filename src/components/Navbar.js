@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class NavC extends Component {
-
-  static propTypes  = {
-    title:  PropTypes.string.isRequired,
+class NavBar extends Component {
+  static propTypes = {
+    title: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired
-  }
+  };
 
   render() {
     return (
@@ -21,4 +20,4 @@ class NavC extends Component {
   }
 }
 
-export default NavC;
+export default NavBar;

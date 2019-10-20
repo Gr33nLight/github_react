@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar';
+import NavBar from './components/NavBar';
 import UsersList from './components/users/UsersList';
 
 export class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar title="Github Finder" icon="fab fa-github" />
-        <UsersList/>
+        <NavBar title="Github Finder" icon="fab fa-github" />
+        <UsersList />
       </React.Fragment>
     );
   }
