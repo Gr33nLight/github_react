@@ -1,30 +1,30 @@
-import React, { Component } from 'react';
-import Axios from 'axios';
+import React from 'react';
 import UserItem from './UserItem';
+import Spinner from '../Spinner';
+import PropTypes from 'prop-types';
 
-export default class UsersList extends Component {
-  state = {
-    users: []
-  };
-
-  componentDidMount = () => {
-    Axios.get('https://api.github.com/users').then((res) => {
-      this.setState({ users: res.data });
-    });
-  };
-  render() {
-    let users = this.state.users;
+const UsersList = ({ users, loading }) => {
+  if (loading) {
+    return <Spinner />;
+  } else {
     return (
-      <div style={{ display: 'flex', flexWrap: 'wrap'}}>
+      <div
+        style={{
+          display: 'flex',
+          flexFlow: 'row wrap',
+          justifyContent: 'space-between'
+        }}
+      >
         {users.map((ele) => {
-          return (
-            <div style={{ flex: '0 0 25%' }}>
-              {' '}
-              <UserItem item={ele} />
-            </div>
-          );
+          return <UserItem item={ele} key={ele.login} />;
         })}
       </div>
     );
   }
-}
+};
+
+UsersList.propTypes = {
+  users: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
+};
+export default UsersList;
