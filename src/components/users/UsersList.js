@@ -11,8 +11,10 @@ const UsersList = ({ users, loading }) => {
       <div
         style={{
           display: 'flex',
-          flexFlow: 'row wrap',
-          justifyContent: 'space-between'
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyItems: 'center',
+          justifyContent: 'flex-start'
         }}
       >
         {users.map((ele) => {

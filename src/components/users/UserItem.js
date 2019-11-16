@@ -8,8 +8,11 @@ const UserItem = ({ item: { login, avatar_url, html_url } }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '33%',
+        justifyContent: 'space-evenly',
+        width: '200px',
         height: '200px',
+        margin: '10px',
+        padding: '10px',
         border: 'solid 1px'
       }}
     >
@@ -21,8 +24,8 @@ const UserItem = ({ item: { login, avatar_url, html_url } }) => {
           style={{ width: '100%', height: 'auto' }}
         />
       </div>
-      <h3 style={{ flex: '1' }}>{login}</h3>
-      <div style={{ flex: '1' }}>
+      <div style={{ flex: '0.7', textAlign: 'center' }}>
+        <h3>{login}</h3>
         <a href={html_url} className="btn btn-dark btn-sm my-1">
           More
         </a>
