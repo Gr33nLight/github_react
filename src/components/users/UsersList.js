@@ -2,6 +2,7 @@ import React from 'react';
 import UserItem from './UserItem';
 import Spinner from '../Spinner';
 import PropTypes from 'prop-types';
+import '../../list_style_fix.css';
 
 const UsersList = ({ users, loading }) => {
   if (loading) {
@@ -9,12 +10,13 @@ const UsersList = ({ users, loading }) => {
   } else {
     return (
       <div
+        className="list"
         style={{
           display: 'flex',
           flexDirection: 'row',
           flexWrap: 'wrap',
           justifyItems: 'center',
-          justifyContent: 'flex-start'
+          justifyContent: 'space-between'
         }}
       >
         {users.map((ele) => {

@@ -1,0 +1,4 @@
+.list::after {
+  content: '  c  ';
+  flex: auto;
+}

@@ -8,7 +8,7 @@ const UserItem = ({ item: { login, avatar_url, html_url } }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
         width: '200px',
         height: '200px',
         margin: '10px',
