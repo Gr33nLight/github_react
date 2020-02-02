@@ -1,3 +1,4 @@
+/*fix for tha last element in a list not being left aligned in flex layout*/
 .list::after {
   content: '  c  ';
   flex: auto;
