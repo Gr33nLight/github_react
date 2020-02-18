@@ -1,14 +1,16 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
-const NavBar = (props) =>{
+export class NavBar extends Component {
+  render() {
     return (
       <nav className="navbar bg-primary">
         <h3>
-          <i className={props.icon} /> {props.title}
+          <i className={this.props.icon} /> {this.props.title}
         </h3>
       </nav>
     );
+  }
 }
 
 NavBar.propTypes = {
@@ -19,6 +21,6 @@ NavBar.propTypes = {
 NavBar.defaultProps = {
   title: 'Github Finder',
   icon: 'fab fa-github'
-}
+};
 
 export default NavBar;
