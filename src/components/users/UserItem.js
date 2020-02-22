@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const UserItem = ({ item: { login, avatar_url, html_url } }) => {
-  
   return (
     <div
       style={{
