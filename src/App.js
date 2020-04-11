@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import UsersList from './components/users/UsersList';
 import Search from './components/Search';
+import About from './components/About';
 import Axios from 'axios';
+import { Container, Row, Col } from 'react-bootstrap';
 
 export class App extends Component {
   state = {
@@ -38,22 +41,45 @@ export class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <NavBar
-          title="Github Finder"
-          icon="fab fa-github"
-          users={this.state.users}
-        />
-        <Search
-          text={this.state.searchText}
-          onChange={this.onChange}
-          onSubmit={this.onSubmit}
-        />
-        <UsersList
-          users={this.state.filteredUsers}
-          loading={this.state.loading}
-        />
-      </React.Fragment>
+      <Router>
+        <React.Fragment>
+          <NavBar
+            title="Github Finder"
+            icon="fab fa-github"
+            users={this.state.users}
+          />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <Container>
+                  <Row>
+                    <Col>
+                      <Search
+                        text={this.state.searchText}
+                        onChange={this.onChange}
+                        onSubmit={this.onSubmit}
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <UsersList
+                        users={this.state.filteredUsers}
+                        loading={this.state.loading}
+                      />
+                    </Col>
+                  </Row>
+                </Container>
+              )}
+            />
+            <Route exact path='/about' component={About}>
+
+            </Route>
+          </Switch>
+        </React.Fragment>
+      </Router>
     );
   }
 }
