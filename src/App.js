@@ -19,7 +19,7 @@ export class App extends Component {
   async componentDidMount() {
     this.setState({ loading: true });
     const res = await Axios.get(
-      'https://api.github.com/users?client_id=c09a6e08b1069cc8b2b9&client_secret=10c0bf4d275014dce19c020b4048399aa1323c09'
+      `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
     this.setState({ loading: false, users: res.data, filteredUsers: res.data });
   }
