@@ -26,7 +26,6 @@ export class App extends Component {
 
   onChange = (e) => {
     let filteredUsers = [];
-
     this.setState({ [e.target.name]: e.target.value }, () => {
       filteredUsers = this.state.users.filter((ele) => {
         return ele.login.includes(this.state.searchText);
@@ -35,9 +34,21 @@ export class App extends Component {
     });
   };
 
+  doSearch = async (query) => {
+    this.setState({ loading: true });
+    const res = await Axios.get(
+      `https://api.github.com/search/users?q=${query}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
+    this.setState({
+      loading: false,
+      users: res.data.items,
+      filteredUsers: res.data.items
+    });
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.searchText);
+    this.doSearch(this.state.searchText);
   };
 
   render() {

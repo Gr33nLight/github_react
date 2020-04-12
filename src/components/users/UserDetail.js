@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import Spinner from '../Spinner';
-import { Container, Row, Col } from 'react-bootstrap';
+import Repos from '../Repos';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 export class UserDetail extends Component {
   state = {
     loading: false,
     userDetail: [],
+    repos: [],
     username: ''
   };
 
   async componentDidMount() {
     this.setState({ loading: true });
     let username = this.props.match.params.username;
-    console.log(username);
-    const res = await Axios.get(
+    const user = await Axios.get(
       'https://api.github.com/users/' +
         username +
-        '?client_id=c09a6e08b1069cc8b2b9&client_secret=10c0bf4d275014dce19c020b4048399aa1323c09'
+        `?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
-    this.setState({ loading: false, userDetail: res.data });
+    const repos = await Axios.get(
+      'https://api.github.com/users/' +
+        username +
+        `/repos?per_page=10&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
+    this.setState({ loading: false, userDetail: user.data, repos: repos.data });
   }
 
   render() {
@@ -28,26 +34,40 @@ export class UserDetail extends Component {
       return <Spinner />;
     } else {
       return (
-        <Container>
+        <Container fluid>
           <Row>
-            <Col>
-              <img src={avatar_url} alt="" width="300px" />
+            <Col sm={12} md={6}>
+              <Card className="p-md-4">
+                <Row>
+                  <img
+                    src={avatar_url}
+                    alt=""
+                    className="mx-auto d-block"
+                    width="200px"
+                  />
+                </Row>
+
+                <h3 className="mt-2">
+                  {name} ({login})
+                </h3>
+
+                {location && (
+                  <div>
+                    <span
+                      className="fa fa-location-arrow"
+                      style={{ marginRight: '5px', verticalAlign: 'middle' }}
+                    />
+                    <span>{location}</span>
+                  </div>
+                )}
+                {bio && <span>{bio}</span>}
+              </Card>
             </Col>
-          </Row>
-          <Row>
-            <Col md={3}>
-              <h3>
-                {name} ({login})
-              </h3>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3}>
-              <span
-                className="fa fa-location-arrow"
-                style={{ marginRight: '5px', verticalAlign: 'middle' }}
-              />
-              <span>{location}</span>
+            <Col sm={12} md={6}>
+              <Card className="p-md-4">
+                <h3>Repositories</h3>
+                <Repos repos={this.state.repos} />
+              </Card>
             </Col>
           </Row>
         </Container>
