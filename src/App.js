@@ -27,9 +27,9 @@ export class App extends Component {
   onChange = (e) => {
     let filteredUsers = [];
     this.setState({ [e.target.name]: e.target.value }, () => {
-      filteredUsers = this.state.users.filter((ele) => {
-        return ele.login.includes(this.state.searchText);
-      });
+      filteredUsers = this.state.users.filter((ele) =>
+        ele.login.includes(this.state.searchText)
+      );
       this.setState({ filteredUsers });
     });
   };
