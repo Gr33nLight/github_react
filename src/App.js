@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import UsersList from './components/users/UsersList';
+import UserDetail from './components/users/UserDetail';
 import Search from './components/Search';
 import About from './components/About';
 import Axios from 'axios';
@@ -74,9 +75,8 @@ export class App extends Component {
                 </Container>
               )}
             />
-            <Route exact path='/about' component={About}>
-
-            </Route>
+            <Route exact path="/about" component={About} />
+            <Route path="/user/:username" component={UserDetail} />
           </Switch>
         </React.Fragment>
       </Router>

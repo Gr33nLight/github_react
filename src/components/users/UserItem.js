@@ -26,7 +26,7 @@ const UserItem = ({ item: { login, avatar_url, html_url } }) => {
       </div>
       <div style={{ flex: '0.7', textAlign: 'center' }}>
         <h3>{login}</h3>
-        <a href={html_url} className="btn btn-dark btn-sm my-1">
+        <a href={'/user/'+login} className="btn btn-dark btn-sm my-1">
           More
         </a>
       </div>
