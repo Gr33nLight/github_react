@@ -36,8 +36,8 @@ export class UserDetail extends Component {
       return (
         <Container fluid>
           <Row>
-            <Col sm={12} md={6}>
-              <Card className="p-md-4">
+            <Col sm={12} md={4}>
+              <Card className="p-4 mt-4">
                 <Row>
                   <img
                     src={avatar_url}
@@ -63,8 +63,8 @@ export class UserDetail extends Component {
                 {bio && <span>{bio}</span>}
               </Card>
             </Col>
-            <Col sm={12} md={6}>
-              <Card className="p-md-4">
+            <Col sm={12} md={{ span: 5, offset: 2 }}>
+              <Card className="p-4 mt-4">
                 <h3>Repositories</h3>
                 <Repos repos={this.state.repos} />
               </Card>
