@@ -44,7 +44,7 @@ export class App extends Component {
     this.setState({
       loading: false,
       users: res.data.items,
-      filteredUsers: res.data.items
+      filteredUsers: res.data.items,
     });
   };
 

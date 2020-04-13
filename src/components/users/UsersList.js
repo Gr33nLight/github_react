@@ -17,7 +17,7 @@ function UsersList({ loading, users }) {
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyItems: 'center',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
           }}
         >
           {users.map((ele) => {
@@ -31,7 +31,7 @@ function UsersList({ loading, users }) {
 
 UsersList.propTypes = {
   users: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
 };
 
 export default UsersList;
