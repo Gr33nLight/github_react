@@ -26,12 +26,14 @@ export class App extends Component {
 
   onChange = (e) => {
     let filteredUsers = [];
-    this.setState({ [e.target.name]: e.target.value }, () => {
-      filteredUsers = this.state.users.filter((ele) =>
-        ele.login.includes(this.state.searchText)
-      );
-      this.setState({ filteredUsers });
-    });
+
+    //[e.target.name] = [e.target.value];
+    let searchText = e.target.value;
+
+    filteredUsers = this.state.users.filter((user) =>
+      user.login.includes(searchText)
+    );
+    this.setState({ filteredUsers, searchText });
   };
 
   doSearch = async (query) => {
