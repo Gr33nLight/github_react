@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import UserItem from './UserItem';
 import Spinner from '../Spinner';
-import PropTypes from 'prop-types';
+import GithubContext from '../../context/githubContext';
+
 import '../../list_style_fix.css';
 
-function UsersList({ loading, users }) {
-  if (loading) {
+function UsersList() {
+  const githubContext = useContext(GithubContext);
+
+  if (githubContext.loading) {
     return <Spinner />;
   } else {
     return (
@@ -20,7 +23,7 @@ function UsersList({ loading, users }) {
             justifyContent: 'space-between',
           }}
         >
-          {users.map((ele) => {
+          {githubContext.users.map((ele) => {
             return <UserItem item={ele} key={ele.login} />;
           })}
         </div>
@@ -28,10 +31,5 @@ function UsersList({ loading, users }) {
     );
   }
 }
-
-UsersList.propTypes = {
-  users: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired,
-};
 
 export default UsersList;
