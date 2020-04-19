@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {GithubContext} from '../context/GithubStateProvider';
 
-const About = () => {
-  return <div>This is the about page</div>;
-};
+//This class is a component instead of function for testing purposes
+export class About extends Component {
+  static contextType = GithubContext;
 
+  render() {
+    return <div>This is the about page</div>;
+  }
+}
 export default About;

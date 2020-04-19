@@ -10,7 +10,6 @@ export default (state, action) => {
     case SET_LOADING:
       return { ...state, loading: true };
     case SET_USERS:
-      console.log(JSON.stringify(action));
       return {
         ...state,
         users: action.payload,

@@ -1,7 +1,7 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, createContext } from 'react';
 import Axios from 'axios';
 import GitHhbReducer from './githubReducer';
-import GithubContext from './githubContext';
+//import GithubContext from './githubContext';
 import {
   SET_LOADING,
   SET_USERS,
@@ -9,7 +9,9 @@ import {
   SET_SEARCH_TEXT,
 } from './types';
 
-const GitHubState = (props) => {
+export const GithubContext = createContext();
+
+const GitHubStateProvider = (props) => {
   const initialState = {
     users: [],
     filteredUsers: [],
@@ -87,4 +89,4 @@ const GitHubState = (props) => {
   );
 };
 
-export default GitHubState;
+export default GitHubStateProvider;

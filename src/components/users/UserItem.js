@@ -14,7 +14,7 @@ const UserItem = ({ item: { login, avatar_url, html_url } }) => {
         height: '200px',
         margin: '10px',
         padding: '10px',
-        border: 'solid 1px'
+        border: 'solid 1px',
       }}
     >
       <div style={{ width: '100px', flex: '1' }}>
@@ -35,7 +35,7 @@ const UserItem = ({ item: { login, avatar_url, html_url } }) => {
   );
 };
 UserItem.propTypes = {
-  item: PropTypes.object.isRequired
+  item: PropTypes.object.isRequired,
 };
 
 export default UserItem;
