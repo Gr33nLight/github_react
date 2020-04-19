@@ -1,7 +1,7 @@
 import React, { useReducer, createContext } from 'react';
 import Axios from 'axios';
 import GitHhbReducer from './githubReducer';
-//import GithubContext from './githubContext';
+
 import {
   SET_LOADING,
   SET_USERS,
@@ -28,18 +28,13 @@ const GitHubStateProvider = (props) => {
   const setUsers = (users) => dispatch({ type: SET_USERS, payload: users });
 
   const onChange = (e) => {
-    //FIXME: improve filtered users search
-
-    //let filteredUsers = [];
-
-    //[e.target.name] = [e.target.value];
+    let filteredUsers = [];
     let searchText = e.target.value;
 
-    /* filteredUsers = state.users.filter((user) =>
+    filteredUsers = state.users.filter((user) =>
       user.login.includes(searchText)
     );
-    setFilteredUsers(filteredUsers);*/
-    console.log(searchText);
+    setFilteredUsers(filteredUsers);
     setSearchText(searchText);
   };
 

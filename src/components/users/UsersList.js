@@ -23,7 +23,7 @@ function UsersList() {
             justifyContent: 'space-between',
           }}
         >
-          {githubContext.users.map((ele) => {
+          {githubContext.filteredUsers.map((ele) => {
             return <UserItem item={ele} key={ele.login} />;
           })}
         </div>
