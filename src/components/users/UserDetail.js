@@ -5,6 +5,7 @@ import Repos from '../Repos';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 
 const UserDetail = ({
+  //Extracting username from the match object passed in the props from the url ex. path="/user/:username"
   match: {
     params: { username },
   },

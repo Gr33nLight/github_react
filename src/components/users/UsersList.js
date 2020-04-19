@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import UserItem from './UserItem';
 import Spinner from '../Spinner';
-import { GithubContext } from '../../context/GithubStateProvider';
+import { GithubContext } from '../../context/GithubContextProvider';
 
 import '../../list_style_fix.css';
 

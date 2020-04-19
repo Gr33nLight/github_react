@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import UserDetail from './components/users/UserDetail';
 import About from './components/About';
-import { GithubContext } from './context/GithubStateProvider';
+import { GithubContext } from './context/GithubContextProvider';
 import Home from './components/Home';
 
 class App extends Component {

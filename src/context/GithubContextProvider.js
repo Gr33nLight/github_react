@@ -11,7 +11,7 @@ import {
 
 export const GithubContext = createContext();
 
-const GitHubStateProvider = (props) => {
+const GithubContextProvider = (props) => {
   const initialState = {
     users: [],
     filteredUsers: [],
@@ -84,4 +84,4 @@ const GitHubStateProvider = (props) => {
   );
 };
 
-export default GitHubStateProvider;
+export default GithubContextProvider;

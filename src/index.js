@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import GithubStateProvider from './context/GithubStateProvider';
+import GithubContextProvider from './context/GithubContextProvider';
 //bootstrap ibrary
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-  <GithubStateProvider>
+  <GithubContextProvider>
     <App />
-  </GithubStateProvider>,
+  </GithubContextProvider>,
   document.getElementById('root')
 );

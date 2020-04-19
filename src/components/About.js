@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {GithubContext} from '../context/GithubStateProvider';
+import { GithubContext } from '../context/GithubContextProvider';
 
 //This class is a component instead of function for testing purposes
 export class About extends Component {

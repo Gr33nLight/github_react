@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import {GithubContext} from '../context/GithubStateProvider';
+import {GithubContext} from '../context/GithubContextProvider';
 
 const Search = () => {
   const githubContext = useContext(GithubContext);
